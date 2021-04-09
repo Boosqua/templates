@@ -1,27 +1,34 @@
-import React, {useState} from "react"
-import ModalBackground from "./modals/modal_background"
-import {ThemeProvider} from "react-jss"
+import React, {useState, useEffect} from "react"
+import jss from "jss"
+import reset from 'reset-jss'
+import Button from "./buttons/button"
 export default function () {
-   const [color, setColor] = useState("")
+   const sheet = jss.createStyleSheet(reset)
+   sheet.attach()
+   const [modal, setModal] = useState(true)
+   // const [pos, setPos] = useState(-420)
+   // const int =() => {
+   //    let pos1 = pos
+   //    const int = setInterval( () => {
+   //    pos1+= 3
+   //    setPos(pos1)
+   //    if(pos1 >= 0){
+   //       setPos(0)
+   //       stop()
+   //    }
+   // }, 1)
+   // const stop = () => {
+   // clearInterval(int)
+   // }}
+   
+   // useEffect(() => int(), [])
    return (
-      <ThemeProvider theme={theme}>
-         <button onClick={(e) => {
-            e.preventDefault();
-            setColor("red")
-         }}>"red"</button>
-         <button onClick={(e) => {
-            e.preventDefault();
-            setColor("yellow")
-         }}>"yellow"</button>
-         <button onClick={(e) => {
-            e.preventDefault();
-            setColor("blue")
-         }}>"blue"</button>
-         <ModalBackground />
-      </ThemeProvider>
+
+         <Button>
+               <span>Button</span>
+         </Button>
+
    )
 }
 
-const theme = {
-   background: "rgba(0,0,0,.25)"
-}
+
